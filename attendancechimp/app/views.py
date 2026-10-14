@@ -44,12 +44,12 @@ def time_view(request):
     return HttpResponse(f"{formatted_time}")
 
 def sum_view(request):
-    n1 = float(request.GET.get('n1', 0))
-    n2 = float(request.GET.get('n2', 0))
-    sum = n1 + n2
-    if sum.is_integer():
-        sum = int(sum)
-    return JsonResponse({'sum': sum})
+    n1 = float(request.GET.get("n1", 0))
+    n2 = float(request.GET.get("n2", 0))
+    total = n1 + n2
+    if total.is_integer():
+        total = int(total)
+    return HttpResponse(f"<p>{json.dumps({'sum': total})}</p>")
 
 
 
