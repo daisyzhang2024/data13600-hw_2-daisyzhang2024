@@ -35,7 +35,7 @@ def index(request):
 
 def time_view(request):
     # Get the current time in Central Time
-    central_time = CDT
+    central_time = datetime.now(CDT)
     
     # Format the time as a string
     formatted_time = central_time.strftime("%H:%M")
