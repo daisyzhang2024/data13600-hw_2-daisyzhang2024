@@ -41,7 +41,7 @@ def time_view(request):
     formatted_time = central_time.strftime("%H:%M")
     
     # Return the formatted time as an HTTP response
-    return HttpResponse(f"Current Central Time: {formatted_time}")
+    return HttpResponse(f"{formatted_time}")
 
 def sum_view(request):
     n1 = float(request.GET.get('n1', 0))
