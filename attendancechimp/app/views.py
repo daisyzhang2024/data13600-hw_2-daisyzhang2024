@@ -33,6 +33,24 @@ def index(request):
     context = {}
     return render(request, 'app/index.html', context)
 
+def time_view(request):
+    # Get the current time in Central Time
+    central_time = CDT
+    
+    # Format the time as a string
+    formatted_time = central_time.strftime("%H:%M")
+    
+    # Return the formatted time as an HTTP response
+    return HttpResponse(f"Current Central Time: {formatted_time}")
+
+def sum_view(request):
+    n1 = float(request.GET.get('n1', 0))
+    n2 = float(request.GET.get('n2', 0))
+    sum = n1 + n2
+    if sum.is_integer():
+        sum = int(sum)
+    return JsonResponse({'sum': sum})
+
 
 
 # ---------------------------------------------------------------------------
